@@ -154,6 +154,10 @@ func (s *Server) ServeMux() ServeMux {
 	return s.ss.Handler.(*chi.Mux)
 }
 
+func (s *Server) Add(a *accessory.A) {
+	s.as = append(s.as, a)
+}
+
 // IsAuthorized returns true if the provided
 // request is authorized to access accessory data.
 func (s *Server) IsAuthorized(request *http.Request) bool {
